@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { GetInfoButton } from "../buttons/GetInfoButton";
 import PopupModal from "../modals/PopupModal";
 
-const CardTemplate = ({ pokemons }) => {
+const PokemonCard = ({ pokemons }) => {
     const [showPopupModal, setShowPopupModal] = useState(false);
     const [currentPokemon, setCurrentPokemon] = useState(null);
     const openInformationPopup = (pokemon) => {
@@ -16,9 +16,9 @@ const CardTemplate = ({ pokemons }) => {
 
     return (
         <div className="container mt-4">
-            <div className="row">
+            <div className="row" >
                 {pokemons.map((pokemon, index) => (
-                    <div className="col-md-4" key={index}>
+                    <div className="col-md-4 mb-4" key={index}>
                         <div className="card">
                             <img
                                 src={pokemon.sprites.front_default}
@@ -49,4 +49,4 @@ const CardTemplate = ({ pokemons }) => {
     );
 };
 
-export default CardTemplate;
+export default PokemonCard;
