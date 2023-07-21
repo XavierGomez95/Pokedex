@@ -1,5 +1,5 @@
 import './App.css';
-import PokedexPage from "./PokedexPage";
+import PokedexPage from "./components/ventana/PokedexPage";
 import {BrowserRouter as Router} from "react-router-dom";
 
 function App() {
