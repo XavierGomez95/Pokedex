@@ -4,6 +4,7 @@ import PokemonCard from "../cards/PokemonCard";
 const PokedexPage = () => {
     const [pokemons, setPokemons] = useState([]);
     const [generation, setGeneration] = useState('1');
+    const [searchTerm, setSearchTerm] = useState('');
 
 
     useEffect(() => {
@@ -89,6 +90,15 @@ const PokedexPage = () => {
         overflowY: 'hidden'
     }
 
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value);
+        console.log(event.target.placeholder);
+    };
+
+    const filteredPokemons = pokemons.filter((pokemon) => {
+        return pokemon.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
     return (
             <div className="row">
                 <div className="col-1" style={ margin }>
@@ -141,8 +151,18 @@ const PokedexPage = () => {
                 </div>
                 <div className="col m-5">
                     <h1>Pokédex</h1>
+                    <div className="form-group mt-3">
+                        <input
+                            type="text"
+                            className="form-control "
+                            style={{ marginBottom: "calc(100vh - 94vh)", marginTop: "calc(100vh - 94vh)", marginLeft: "calc(100vh - 70vh)", inlineSize: 400 }}
+                            placeholder="Search Pokémon by name..."
+                            value={searchTerm}
+                            onChange={handleSearch}
+                        />
+                    </div>
                         <PokemonCard
-                            pokemons={pokemons}
+                            pokemons={filteredPokemons}
                         />
                 </div>
             </div>
