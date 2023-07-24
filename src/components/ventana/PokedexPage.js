@@ -84,13 +84,14 @@ const PokedexPage = () => {
         top: 120,
         height: "calc(100vh - 20vh)",
         width: "calc(100vh - 83vh)",
-        padding: 30
+        padding: "calc(100vh - 86vh)",
+        overflowX: 'hidden',
+        overflowY: 'hidden'
     }
 
     return (
-        <div className="container" >
             <div className="row">
-                <div className="col-1" style={{...margin, overflowX: 'hidden'}}>
+                <div className="col-1" style={ margin }>
                     <h4 className="mb-3">Generation</h4>
                         <button type="button"
                                 className={`btn btn-outline-info mb-3
@@ -145,7 +146,6 @@ const PokedexPage = () => {
                         />
                 </div>
             </div>
-        </div>
     );
 };
 

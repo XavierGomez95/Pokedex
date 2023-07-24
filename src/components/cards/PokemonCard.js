@@ -29,10 +29,10 @@ const PokemonCard = ({ pokemons }) => {
     }
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-sm-3">
             <div className="row" >
                 {pokemons.map((pokemon, index) => (
-                    <div className="col-md-4 mb-4" key={index}>
+                    <div className="col-12 col-sm-12 col-md-6 col-lg-4 mb-4" key={index}>
                         <div className="card">
                             <img
                                 src={pokemon.sprites.front_default}
@@ -42,25 +42,15 @@ const PokemonCard = ({ pokemons }) => {
                             <div className="card-body">
                                 <h5 className="card-title">{pokemon.name} - #{pokemon.id.toString().padStart(4, '0')}</h5>
                                 {pokemon.types.map((type, index) => {
-                                    if (type.type.name !== ";") {
-                                        console.log(type.type.name);
-                                        return (
-                                            <p
-                                                key={index}
-                                                style={{
-                                                    backgroundColor: typeColors[type.type.name],
-                                                    padding: '5px',
-                                                    color: 'white',
-                                                    borderRadius: '5px',
-                                                    display: 'inline-block',
-                                                    marginRight: '5px',
-                                                }}
-                                            >
-                                                {type.type.name}
-                                            </p>
-                                        );
-                                    }
-                                })};
+                                    console.log(type.type.name);
+                                    return (
+                                        <p key={index} style={{ backgroundColor: typeColors[type.type.name], padding: '5px',
+                                            color: 'white', borderRadius: '5px', display: 'inline-block', marginRight: '5px',
+                                        }} >
+                                            {type.type.name}
+                                        </p>
+                                    )
+                                })}
                                 <p>
                                     <GetInfoButton onClick={() => {
                                         openInformationPopup(pokemon);
